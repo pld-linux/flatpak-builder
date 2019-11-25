@@ -1,0 +1,11 @@
+--- flatpak-builder-1.0.9/configure.ac.orig	2019-09-13 15:46:44.000000000 +0200
++++ flatpak-builder-1.0.9/configure.ac	2019-11-25 15:40:55.463307280 +0100
+@@ -45,7 +45,7 @@
+ else
+    FLATPAK_VERSION=`$FLATPAK --version | sed 's,.*\ \([0-9]*\.[0-9]*\.[0-9]*\)$,\1,'`
+    AX_COMPARE_VERSION([$FLATPAK_REQS],[gt],[$FLATPAK_VERSION],
+-                      [AC_MSG_ERROR([You need at least version $FLATPAK_REQS of flatpak, your version is $FLATPAK_VERSION])])
++                      [AC_MSG_WARN([You need at least version $FLATPAK_REQS of flatpak, your version is $FLATPAK_VERSION])])
+ fi
+ 
+ 
