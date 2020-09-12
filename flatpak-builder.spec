@@ -1,13 +1,13 @@
 Summary:	Tool for building flatpaks from sources
 Summary(pl.UTF-8):	Narzędzie do budowania pakietów flatpak ze źródeł.
 Name:		flatpak-builder
-Version:	1.0.9
+Version:	1.0.11
 Release:	1
 License:	LGPL v2.1+
 Group:		Applications
 #Source0Download: https://github.com/flatpak/flatpak-builder/releases
 Source0:	https://github.com/flatpak/flatpak-builder/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	89c8759aa0b78eb6d029c459f9312255
+# Source0-md5:	1244dd774bfc1e40c11e13c9f3eaeb6e
 Patch0:		%{name}-reqs.patch
 URL:		https://github.com/flatpak/flatpak-builder
 BuildRequires:	autoconf >= 2.63
@@ -20,6 +20,7 @@ BuildRequires:	elfutils-devel
 BuildRequires:	gettext-tools >= 0.18.2
 BuildRequires:	glib2-devel >= 1:2.44
 BuildRequires:	json-glib-devel
+BuildRequires:	libcap-devel
 BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libtool >= 2:2.2.6
 BuildRequires:	libxml2-devel >= 2.4
