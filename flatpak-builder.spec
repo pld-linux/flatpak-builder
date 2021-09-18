@@ -1,13 +1,13 @@
 Summary:	Tool for building flatpaks from sources
 Summary(pl.UTF-8):	Narzędzie do budowania pakietów flatpak ze źródeł.
 Name:		flatpak-builder
-Version:	1.0.12
+Version:	1.0.14
 Release:	1
 License:	LGPL v2.1+
 Group:		Applications
 #Source0Download: https://github.com/flatpak/flatpak-builder/releases
 Source0:	https://github.com/flatpak/flatpak-builder/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	83583c2e34837575a882aca11b2e1dd0
+# Source0-md5:	1b60c67af7e9107bad856ce5baf6fd7d
 Patch0:		%{name}-reqs.patch
 URL:		https://github.com/flatpak/flatpak-builder
 BuildRequires:	autoconf >= 2.63
@@ -45,7 +45,7 @@ Flatpak-builder to narzędzie do budowania pakietów flatpak ze źródeł.
 
 %build
 %{__libtoolize}
-%{__aclocal} -I m4 -I libglnx
+%{__aclocal} -I m4 -I subprojects/libglnx
 %{__autoconf}
 %{__autoheader}
 %{__automake}
