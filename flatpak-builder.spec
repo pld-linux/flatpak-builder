@@ -1,24 +1,24 @@
 Summary:	Tool for building flatpaks from sources
 Summary(pl.UTF-8):	Narzędzie do budowania pakietów flatpak ze źródeł.
 Name:		flatpak-builder
-Version:	1.2.0
+Version:	1.4.3
 Release:	1
 License:	LGPL v2.1+
 Group:		Applications
 #Source0Download: https://github.com/flatpak/flatpak-builder/releases
 Source0:	https://github.com/flatpak/flatpak-builder/releases/download/%{version}/%{name}-%{version}.tar.xz
-# Source0-md5:	2b3b604c938805da6515e15ac9552d49
+# Source0-md5:	fd19632cc2fe89a2a155b0453ec3cd1c
 Patch0:		%{name}-reqs.patch
 URL:		https://github.com/flatpak/flatpak-builder
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.13.4
 BuildRequires:	curl-devel
-BuildRequires:	docbook-dtd412-xml
+BuildRequires:	docbook-dtd43-xml
 BuildRequires:	docbook-style-xsl-nons
-# libdw >= 0.172 or system debugedit, libelf from elfutils or libelf-devel >= 0.8.12
+# libdw >= 0.172 or system debugedit >= 5.0, libelf from elfutils or libelf-devel >= 0.8.12
 BuildRequires:	elfutils-devel >= 0.172
 BuildRequires:	gettext-tools >= 0.18.2
-BuildRequires:	glib2-devel >= 1:2.44
+BuildRequires:	glib2-devel >= 1:2.66
 BuildRequires:	json-glib-devel
 BuildRequires:	libcap-devel
 BuildRequires:	libsoup-devel >= 2.4
@@ -30,7 +30,9 @@ BuildRequires:	tar >= 1:1.22
 BuildRequires:	xmlto
 BuildRequires:	xz
 BuildRequires:	yaml-devel >= 0.1
+Requires:	AppStream-compose >= 0.15.0
 Requires:	flatpak >= 0.99.1
+Requires:	glib2 >= 1:2.66
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -50,6 +52,7 @@ Flatpak-builder to narzędzie do budowania pakietów flatpak ze źródeł.
 %{__autoheader}
 %{__automake}
 %configure \
+	APPSTREAMCLI=%{_bindir}/appstreamcli \
 	FLATPAK=%{_bindir}/flatpak \
 	--disable-silent-rules
 %{__make}
